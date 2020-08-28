@@ -50,4 +50,54 @@ module.exports = function(app) {
       });
     }
   });
+
+  // POST route for saving a new activity
+  app.post("/api/add", (req, res) => {
+    db.Activity.create({
+      activity: req.body.activity,
+      duration: req.body.duration
+    });
+    res.status(204).end();
+  });
+
+  // GET route for getting an activity
+  app.get("/api/activities/:id", (req, res) => {
+    // Find one Activity with the id in req.params.id and return activity to the user with res.json
+    db.Activity.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbActivity => {
+      res.json(dbActivity);
+    });
+  });
+
+  // Find all Activities and return them to the user with res.json
+  app.get("/api/activities", (req, res) => {
+    db.Activity.findAll({}).then(dbActivity => {
+      res.json(dbActivity);
+    });
+  });
+
+  // PUT route for updating an Activity
+  app.put("/api/activities", (req, res) => {
+    db.Activity.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(dbActivity => {
+      res.json(dbActivity);
+    });
+  });
+
+  // Delete the Activity with the id available to us in req.params.id
+  app.delete("/api/activities/:id", (req, res) => {
+    db.Activity.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(dbActivity => {
+      res.json(dbActivity);
+    });
+  });
 };
