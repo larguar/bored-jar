@@ -1,0 +1,36 @@
+<header class="col-12">
+	<h1>Eat-A-Something</h1>
+	<h2>Add a Food</h2>
+	<form class="create-form">
+		<div class="form-group">
+			<input placeholder="Restaurant" type="text" id="re" name="restaurant">
+		</div>
+		<div class="form-group">
+			<input placeholder="Food" type="text" id="ca" name="foodItem">
+		</div>
+		<button class ="btn btn-primary" type="submit">Add Food</button>
+	</form>
+	<div class="alert" role="alert"></div>
+</header>
+
+<section id="uneaten" class="col-md-6">
+	<h2>Food to Eat:</h2>
+	<ul>
+	{{#each foods}}
+		{{#unless devoured}}
+			{{> food/food-block devoured=true}}
+		{{/unless}}
+	{{/each}}
+	</ul>
+</section>
+
+<section id="devoured" class="col-md-6">
+	<h2>Devoured:</h2>
+	<ul>
+	{{#each foods}}
+		{{#if devoured}}
+			{{> food/food-block devoured=false}}
+		{{/if}}
+	{{/each}}
+	</ul>
+</section>
