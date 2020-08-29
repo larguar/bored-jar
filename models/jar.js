@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   //table named activities
-  var Activities = sequelize.define("activities", {
-    //columns for activities 
+  const Activities = sequelize.define("activities", {
+    //columns for activities
     activity: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     duration: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: false
     }
   });
   return Activities;
