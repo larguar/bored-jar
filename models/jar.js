@@ -12,6 +12,10 @@ module.exports = function(sequelize, DataTypes) {
     duration: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    userID: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   });
   return Activities;
