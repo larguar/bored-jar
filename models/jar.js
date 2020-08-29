@@ -1,16 +1,18 @@
-module.exports = (sequelize, DataTypes) => {
-  const Todo = sequelize.define("Todo", {
-    text: {
+module.exports = function(sequelize, DataTypes) {
+  //table named activities
+  var Activities = sequelize.define("activities", {
+    //columns for activities 
+    activity: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1, 140]
       }
     },
-    complete: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+    duration: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     }
   });
-  return Todo;
+  return Activities;
 };
