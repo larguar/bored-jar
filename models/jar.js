@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   //table named activities
-  const Activities = sequelize.define("activities", {
+  const Activities = sequelize.define("Activities", {
     //columns for activities
     activity: {
       type: DataTypes.STRING,
@@ -12,11 +12,18 @@ module.exports = function(sequelize, DataTypes) {
     duration: {
       type: DataTypes.INTEGER,
       allowNull: false
-    },
-    userID: {
-      type: DataTypes.INTEGER,
-      allowNull: false
     }
   });
+
+  Activities.associate = function(models) {
+    // We're saying that an Activity should belong to an User
+    // An Activity can't be created without a User due to the foreign key constraint
+    Activities.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
   return Activities;
 };

@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "dapperdoug69",
-    "database": "passport_demo",
+    "password": "popcicle11",
+    "database": "boredjar_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
