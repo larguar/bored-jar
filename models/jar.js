@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   //table named activities
-  const Activities = sequelize.define("activities", {
+  const Activities = sequelize.define("Activities", {
     //columns for activities
     activity: {
       type: DataTypes.STRING,
