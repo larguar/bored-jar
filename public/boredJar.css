@@ -26,7 +26,9 @@ h1 {
     border: none;
     color: white;
 }
-
+a{
+    margin: auto;
+}
 button { 
     width: 250px;
     height: 50px;
@@ -88,3 +90,36 @@ img#jar-outline25 {
 img#jar-outline {
     z-index: 7;
 }
+.form-control{
+    width: 250px;
+    height: 52px;
+    margin: auto;
+    margin-top: 3px;
+    margin-bottom: 5px;   
+    border-radius: 4px;
+    outline-width: 0px;
+}
+form{
+    display: block;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+}
+.input-group-btn{
+    width: 90px;
+    background-color: #1B4B30;
+    outline-color: #1B4B30;
+    background-image: linear-gradient(to bottom, #1B4B30 0%,  #0e341e 100%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: none;
+    color: white;
+    margin: auto;
+    margin-top: 3px;
+    margin-bottom: 5px;   
+    border-radius: 4px;
+    outline-width: 0px;
+    height: 50px;
+}
+.taskListContainer{
+    margin-top: 50px;
+}
+
