@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS boredjar;
+CREATE DATABASE boredjar;
