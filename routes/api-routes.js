@@ -74,7 +74,10 @@ module.exports = function(app) {
 
   // Find all Activities and return them to the user with res.json
   app.get("/api/activities", async (req, res) => {
-    const dbActivity = await db.Activity.findAll();
+    const dbActivity = await db.Activity.findAll({
+      include: [db.User]
+    });
+    console.log("dbActivity find all: ", dbActivity);
     res.json(dbActivity);
   });
 
