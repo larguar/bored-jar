@@ -111,5 +111,4 @@ $(document).ready(() => {
     $.post("/api/jar", activity, getActivities);
     $newActivityInput.val("");
   }
-
 });
