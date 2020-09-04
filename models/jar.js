@@ -1,29 +1,27 @@
-module.exports = function(sequelize, DataTypes) {
-  //table named activities
-  const Activities = sequelize.define("Activities", {
-    //columns for activities
-    activity: {
+module.exports = (sequelize, DataTypes) => {
+  const Jar = sequelize.define("Jar", {
+    woooo: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [1, 140]
       }
     },
-    duration: {
+    secondcol: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: true
     }
   });
 
-  Activities.associate = function(models) {
+  Jar.associate = function(models) {
     // We're saying that an Activity should belong to an User
     // An Activity can't be created without a User due to the foreign key constraint
-    Activities.belongsTo(models.User, {
+    Jar.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
   };
 
-  return Activities;
+  return Jar;
 };

@@ -1,2 +1,0 @@
-DROP DATABASE IF EXISTS boredjar_db;
-CREATE DATABASE boredjar_db;

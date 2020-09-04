@@ -51,53 +51,41 @@ module.exports = function(app) {
     }
   });
 
-  // POST route for saving a new activity
-  app.post("/api/add", (req, res) => {
-    db.Activity.create({
-      activity: req.body.activity,
-      duration: req.body.duration
-    });
-    res.status(204).end();
+  app.get("/api/jar", async (req, res) => {
+    const dbJar = await db.Jar.findAll({});
+    res.json(dbJar);
   });
 
-  // GET route for getting an activity
-  app.get("/api/activities/:id", async (req, res) => {
-    // Find one Activity with the id in req.params.id and return activity to the user with res.json
-    const dbActivity = await db.Activity.findOne({
+  app.post("/api/jar", async (req, res) => {
+    const dbJar = await db.Jar.create({
+      woooo: req.body.woooo,
+      secondcol: req.body.secondcol,
+      UserId: req.user.id
+    });
+    res.json(dbJar);
+  });
+
+  app.delete("/api/jar/:id", async (req, res) => {
+    const dbJar = await db.Jar.destroy({
       where: {
         id: req.params.id
+      }
+    });
+    res.json(dbJar);
+  });
+
+  app.put("/api/jar", async (req, res) => {
+    const dbJar = await db.Jar.update(
+      {
+        woooo: req.body.woooo,
+        secondcol: req.body.secondcol
       },
-      include: [db.User]
-    });
-    res.json(dbActivity);
-  });
-
-  // Find all Activities and return them to the user with res.json
-  app.get("/api/activities", async (req, res) => {
-    const dbActivity = await db.Activity.findAll({
-      include: [db.User]
-    });
-    console.log("dbActivity find all: ", dbActivity);
-    res.json(dbActivity);
-  });
-
-  // PUT route for updating an Activity
-  app.put("/api/activities", async (req, res) => {
-    const dbActivity = await db.Activity.update(req.body, {
-      where: {
-        id: req.body.id
+      {
+        where: {
+          id: req.body.id
+        }
       }
-    });
-    res.json(dbActivity);
-  });
-
-  // Delete the Activity with the id available to us in req.params.id
-  app.delete("/api/activities/:id", async (req, res) => {
-    const dbActivity = await db.Activity.destroy({
-      where: {
-        id: req.params.id
-      }
-    });
-    res.json(dbActivity);
+    );
+    res.json(dbJar);
   });
 };
