@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Activity - Express</title>
-	<!-- Latest compiled and minified CSS & JS -->
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/lumen/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://code.jquery.com/jquery.js"></script>
@@ -46,13 +46,12 @@
 					<div class="container">
 					  <div class="row">
 						<div class="col-2">
-						  <select class="random-time form-control" placeholder="Time" name="secondcol">
+						  <select class="random-time form-control" placeholder="Time" name="Duration">
 							  <option selected disabled>Time to Complete</option>
 							  <option>15</option>
 							  <option>30</option>
 							  <option>60</option>
 							</select>
-						  <!-- <input class="new-time form-control" placeholder="Add an activity" name="secondcol" /> -->
 						</div>
 						<div class="col-3">
 						  <button type="submit" class="btn btn-success">Pick</button>
@@ -70,16 +69,15 @@
               <div class="container">
                 <div class="row">
                   <div class="col-6">
-                    <input class="new-activity form-control" placeholder="Activity" name="woooo" />
+                    <input class="new-activity form-control" placeholder="Activity" name="ActivityName" />
 				  </div>
 				  <div class="col-3">
-					<select class="new-time form-control" placeholder="Time" name="secondcol">
+					<select class="new-time form-control" placeholder="Time" name="Duration">
 						<option selected disabled>Time to Complete</option>
 						<option>15</option>
 						<option>30</option>
 						<option>60</option>
 					  </select>
-                    <!-- <input class="new-time form-control" placeholder="Add an activity" name="secondcol" /> -->
 				  </div>
                   <div class="col-3">
                     <button type="submit" class="btn btn-success">Add Activity</button>
@@ -94,7 +92,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- Custom Script -->
 	<script src="js/view.js" type="text/javascript"></script>
 
 </body>

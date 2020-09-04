@@ -1,50 +1,32 @@
-// Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
 const sequelize = require("sequelize");
 
-module.exports = function(app) {
-  // Using the passport.authenticate middleware with our local strategy.
-  // If the user has valid login credentials, send them to the members page.
-  // Otherwise the user will be sent an error
+module.exports = app => {
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
-    // Sending back a password, even a hashed password, isn't a good idea
     res.json({
       email: req.user.email,
       id: req.user.id
     });
   });
 
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
-  app.post("/api/signup", (req, res) => {
-    db.User.create({
+  app.post("/api/signup", async (req, res) => {
+    await db.User.create({
       email: req.body.email,
       password: req.body.password
-    })
-      .then(() => {
-        res.redirect(307, "/api/login");
-      })
-      .catch(err => {
-        res.status(401).json(err);
-      });
+    });
+    res.redirect(307, "/api/login");
   });
 
-  // Route for logging user out
   app.get("/logout", (req, res) => {
     req.logout();
     res.redirect("/");
   });
 
-  // Route for getting some data about our user to be used client side
   app.get("/api/user_data", (req, res) => {
     if (!req.user) {
-      // The user is not logged in, send back an empty object
       res.json({});
     } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
         id: req.user.id
@@ -57,13 +39,10 @@ module.exports = function(app) {
     res.json(dbJar);
   });
 
-  //from the documentation:
-  // Will order randomly based on the dialect (instead of fn('RAND') or fn('RANDOM'))
-  //order: sequelize.random()
-  app.get("/api/jar/:secondcol", async (req, res) => {
+  app.get("/api/jar/:Duration", async (req, res) => {
     const dbJar = await db.Jar.findAll({
       where: {
-        secondcol: req.params.secondcol
+        Duration: req.params.Duration
       },
       order: sequelize.fn("RAND"),
       limit: 1
@@ -73,8 +52,8 @@ module.exports = function(app) {
 
   app.post("/api/jar", async (req, res) => {
     const dbJar = await db.Jar.create({
-      woooo: req.body.woooo,
-      secondcol: req.body.secondcol,
+      ActivityName: req.body.ActivityName,
+      Duration: req.body.Duration,
       UserId: req.user.id
     });
     res.json(dbJar);
@@ -92,8 +71,8 @@ module.exports = function(app) {
   app.put("/api/jar", async (req, res) => {
     const dbJar = await db.Jar.update(
       {
-        woooo: req.body.woooo,
-        secondcol: req.body.secondcol
+        ActivityName: req.body.ActivityName,
+        Duration: req.body.Duration
       },
       {
         where: {

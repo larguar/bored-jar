@@ -14,7 +14,7 @@ $(document).ready(() => {
     $activityContainer.empty();
     const rowsToAdd = [];
     for (let i = 0; i < activities.length; i++) {
-      rowsToAdd.push(createNewRow(activities[i]));
+      rowsToAdd.unshift(createNewRow(activities[i]));
     }
     $activityContainer.prepend(rowsToAdd);
 
@@ -42,7 +42,7 @@ $(document).ready(() => {
       url: "/api/jar/" + $(".random-time").val(),
       method: "GET"
     }).then(response => {
-      $("#random-thing").text(response[0].woooo);
+      $("#random-thing").text(response[0].ActivityName);
     });
   });
 
@@ -79,13 +79,13 @@ $(document).ready(() => {
       [
         "<li class='list-group-item activity-item'>",
         "<span>",
-        activity.woooo,
+        activity.ActivityName,
         "</span>",
-        "<input name='woooo' class='edit' style='display: none;'>",
+        "<input name='ActivityName' class='edit' style='display: none;'>",
         "<span>",
-        activity.secondcol,
+        activity.Duration,
         "</span>",
-        "<input name='secondcol' class='edit' style='display: none;'>",
+        "<input name='Duration' class='edit' style='display: none;'>",
         "<button class='delete btn btn-danger'>✓</button>",
         "</li>"
       ].join("")
@@ -104,8 +104,8 @@ $(document).ready(() => {
   function insertActivity(event) {
     event.preventDefault();
     const activity = {
-      woooo: $newActivityInput.val().trim(),
-      secondcol: $newTimeInput.val()
+      ActivityName: $newActivityInput.val().trim(),
+      Duration: $newTimeInput.val()
     };
 
     $.post("/api/jar", activity, getActivities);

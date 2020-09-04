@@ -1,7 +1,7 @@
 {
-  "name": "1-Passport-Example",
+  "name": "bored-jar",
   "version": "1.0.0",
-  "description": "",
+  "description": "A mobile-first app that allows you to add activities and tasks into a 'Bored Jar' to pull from whenever you have extra time on your hands and need help deciding how to fill that time.",
   "main": "server.js",
   "scripts": {
     "test": "npm run lint",
