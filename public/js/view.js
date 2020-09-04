@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(() => {
   const $newActivityInput = $("input.new-activity");
   const $newTimeInput = $("input.new-time");
   const $activityContainer = $(".activity-container");
@@ -10,7 +10,7 @@ $(document).ready(function() {
   let activities = [];
   getActivities();
 
- function initializeRows() {
+  function initializeRows() {
     $activityContainer.empty();
     const rowsToAdd = [];
     for (let i = 0; i < activities.length; i++) {
@@ -18,19 +18,19 @@ $(document).ready(function() {
     }
     $activityContainer.prepend(rowsToAdd);
 
-    let paper = $('#paper');
-    let val = activities.length;
+    const paper = $("#paper");
+    const val = activities.length;
 
     if (val <= 24) {
-      paper.attr('src', `../img/paper-${val}.svg`);
+      paper.attr("src", `../img/paper-${val}.svg`);
     } else {
-      paper.attr('src', `../img/paper-24.svg`);
+      paper.attr("src", "../img/paper-24.svg");
     }
   }
 
   // This function grabs activities from the database and updates the view
   function getActivities() {
-    $.get("/api/jar", function(data) {
+    $.get("/api/jar", data => {
       activities = data;
       initializeRows();
     });
@@ -39,7 +39,7 @@ $(document).ready(function() {
   // This function deletes a activity when the user clicks the delete button
   function deleteActivity(event) {
     event.stopPropagation();
-    let id = $(this).data("id");
+    const id = $(this).data("id");
     $.ajax({
       method: "DELETE",
       url: "/api/jar/" + id
@@ -65,7 +65,7 @@ $(document).ready(function() {
 
   // This function constructs a activity-item row
   function createNewRow(activity) {
-    let $newInputRow = $(
+    const $newInputRow = $(
       [
         "<li class='list-group-item activity-item'>",
         "<span>",
@@ -93,7 +93,7 @@ $(document).ready(function() {
   // This function inserts a new activity into our database and then updates the view
   function insertActivity(event) {
     event.preventDefault();
-    let activity = {
+    const activity = {
       woooo: $newActivityInput.val().trim(),
       secondcol: $newTimeInput.val().trim()
     };

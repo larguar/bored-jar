@@ -1,3 +1,7 @@
+form.signup,
+form.login {
+  margin-top: 50px;
+}
 .activity-list {
   margin: 0 auto;
   margin-top: 75px;
