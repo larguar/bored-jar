@@ -27,7 +27,6 @@ $(document).ready(() => {
     }
   }
 
-  // This function grabs activities from the database and updates the view
   function getActivities() {
     $.get("/api/jar", data => {
       activities = data;
@@ -37,7 +36,7 @@ $(document).ready(() => {
 
   $("#random-picker").on("submit", event => {
     event.preventDefault();
-    let time = $(".random-time").val();
+    const time = $(".random-time").val();
     if (!time) {
       return;
     }
@@ -50,7 +49,6 @@ $(document).ready(() => {
     });
   });
 
-  // This function deletes a activity when the user clicks the delete button
   function deleteActivity(event) {
     event.stopPropagation();
     const id = $(this).data("id");
@@ -60,24 +58,6 @@ $(document).ready(() => {
     }).then(getActivities);
   }
 
-  // Toggles complete status
-  // function toggleComplete(event) {
-  //   event.stopPropagation();
-  //   let activity = $(this).parent().data("activity");
-  //   activity.complete = !activity.complete;
-  //   updateActivity(activity);
-  // }
-
-  // This function updates a activity in our database
-  // function updateActivity(activity) {
-  //   $.ajax({
-  //     method: "PUT",
-  //     url: "/api/jar",
-  //     data: activity
-  //   }).then(getActivities);
-  // }
-
-  // This function constructs a activity-item row
   function createNewRow(activity) {
     const newInputRow = $(
       [
@@ -96,13 +76,10 @@ $(document).ready(() => {
     newInputRow.find("button.delete").data("id", activity.id);
     newInputRow.find(".edit").css("display", "none");
     newInputRow.data("activity", activity);
-    // if (activity.complete) {
-    //   newInputRow.find("span").css("text-decoration", "line-through");
-    // }
+
     return newInputRow;
   }
 
-  // This function inserts a new activity into our database and then updates the view
   function insertActivity(event) {
     event.preventDefault();
     const activity = {
@@ -114,8 +91,8 @@ $(document).ready(() => {
     newActivityInput.val("");
   }
 
-  let toggle = $("#toggle");
-  let drawer = $("#drawer");
+  const toggle = $("#toggle");
+  const drawer = $("#drawer");
 
   toggle.on("click", () => {
     if (drawer.hasClass("closed")) {
@@ -131,7 +108,7 @@ $(document).ready(() => {
     }
   });
 
-  $('#open-link').on("click", event => {
+  $("#open-link").on("click", event => {
     event.preventDefault();
     if (drawer.hasClass("closed")) {
       drawer.removeClass("closed");
@@ -145,5 +122,4 @@ $(document).ready(() => {
       toggle.addClass("closed");
     }
   });
-
 });
