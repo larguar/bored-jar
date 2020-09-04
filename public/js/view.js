@@ -1,22 +1,21 @@
 $(document).ready(() => {
-  const $newActivityInput = $(".new-activity");
-  const $newTimeInput = $(".new-time");
-  const $activityContainer = $(".activity-container");
+  const newActivityInput = $(".new-activity");
+  const newTimeInput = $(".new-time");
+  const activityContainer = $(".activity-container");
 
   $(document).on("click", "button.delete", deleteActivity);
-  // $(document).on("click", "button.complete", toggleComplete);
   $(document).on("submit", "#activity-form", insertActivity);
 
   let activities = [];
   getActivities();
 
   function initializeRows() {
-    $activityContainer.empty();
+    activityContainer.empty();
     const rowsToAdd = [];
     for (let i = 0; i < activities.length; i++) {
       rowsToAdd.unshift(createNewRow(activities[i]));
     }
-    $activityContainer.prepend(rowsToAdd);
+    activityContainer.prepend(rowsToAdd);
 
     const paper = $("#paper");
     const val = activities.length;
@@ -38,10 +37,15 @@ $(document).ready(() => {
 
   $("#random-picker").on("submit", event => {
     event.preventDefault();
+    let time = $(".random-time").val();
+    if (!time) {
+      return;
+    }
     $.ajax({
-      url: "/api/jar/" + $(".random-time").val(),
+      url: "/api/jar/" + time,
       method: "GET"
     }).then(response => {
+      $(".random-container").attr("style", "display: block");
       $("#random-thing").text(response[0].ActivityName);
     });
   });
@@ -75,40 +79,71 @@ $(document).ready(() => {
 
   // This function constructs a activity-item row
   function createNewRow(activity) {
-    const $newInputRow = $(
+    const newInputRow = $(
       [
-        "<li class='list-group-item activity-item'>",
+        "<li class='activity-item'>",
         "<span>",
         activity.ActivityName,
         "</span>",
-        "<input name='ActivityName' class='edit' style='display: none;'>",
         "<span>",
         activity.Duration,
         "</span>",
-        "<input name='Duration' class='edit' style='display: none;'>",
         "<button class='delete btn btn-danger'>✓</button>",
         "</li>"
       ].join("")
     );
 
-    $newInputRow.find("button.delete").data("id", activity.id);
-    $newInputRow.find(".edit").css("display", "none");
-    $newInputRow.data("activity", activity);
+    newInputRow.find("button.delete").data("id", activity.id);
+    newInputRow.find(".edit").css("display", "none");
+    newInputRow.data("activity", activity);
     // if (activity.complete) {
-    //   $newInputRow.find("span").css("text-decoration", "line-through");
+    //   newInputRow.find("span").css("text-decoration", "line-through");
     // }
-    return $newInputRow;
+    return newInputRow;
   }
 
   // This function inserts a new activity into our database and then updates the view
   function insertActivity(event) {
     event.preventDefault();
     const activity = {
-      ActivityName: $newActivityInput.val().trim(),
-      Duration: $newTimeInput.val()
+      ActivityName: newActivityInput.val().trim(),
+      Duration: newTimeInput.val()
     };
 
     $.post("/api/jar", activity, getActivities);
-    $newActivityInput.val("");
+    newActivityInput.val("");
   }
+
+  let toggle = $("#toggle");
+  let drawer = $("#drawer");
+
+  toggle.on("click", () => {
+    if (drawer.hasClass("closed")) {
+      drawer.removeClass("closed");
+      toggle.removeClass("closed");
+      drawer.addClass("open");
+      toggle.addClass("open");
+    } else {
+      drawer.removeClass("open");
+      toggle.removeClass("open");
+      drawer.addClass("closed");
+      toggle.addClass("closed");
+    }
+  });
+
+  $('#open-link').on("click", event => {
+    event.preventDefault();
+    if (drawer.hasClass("closed")) {
+      drawer.removeClass("closed");
+      toggle.removeClass("closed");
+      drawer.addClass("open");
+      toggle.addClass("open");
+    } else {
+      drawer.removeClass("open");
+      toggle.removeClass("open");
+      drawer.addClass("closed");
+      toggle.addClass("closed");
+    }
+  });
+
 });
