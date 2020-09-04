@@ -40,21 +40,48 @@
 					</div>
 				</div>
 
+				<p id="random-thing"></p>
+
+				<form id="random-picker">
+					<div class="container">
+					  <div class="row">
+						<div class="col-2">
+						  <select class="random-time form-control" placeholder="Time" name="secondcol">
+							  <option selected disabled>Time to Complete</option>
+							  <option>15</option>
+							  <option>30</option>
+							  <option>60</option>
+							</select>
+						  <!-- <input class="new-time form-control" placeholder="Add an activity" name="secondcol" /> -->
+						</div>
+						<div class="col-3">
+						  <button type="submit" class="btn btn-success">Pick</button>
+						</div>
+					  </div>
+					</div>
+				</form>
+
 			</div>
 
-			<div class="col-md-6 offset-md-3">
+			<div class="col-md-10 offset-md-1">
 				<ul class="list-group activity-list">
 					<li class="list-group-item new-item">
 						<form id="activity-form">
               <div class="container">
                 <div class="row">
                   <div class="col-6">
-                    <input class="new-activity form-control" placeholder="Add an activity" name="woooo" />
+                    <input class="new-activity form-control" placeholder="Activity" name="woooo" />
 				  </div>
-				  <div class="col-4">
-                    <input class="new-time form-control" placeholder="Add an activity" name="secondcol" />
+				  <div class="col-3">
+					<select class="new-time form-control" placeholder="Time" name="secondcol">
+						<option selected disabled>Time to Complete</option>
+						<option>15</option>
+						<option>30</option>
+						<option>60</option>
+					  </select>
+                    <!-- <input class="new-time form-control" placeholder="Add an activity" name="secondcol" /> -->
 				  </div>
-                  <div class="col-2">
+                  <div class="col-3">
                     <button type="submit" class="btn btn-success">Add Activity</button>
                   </div>
                 </div>

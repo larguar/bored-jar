@@ -1,6 +1,6 @@
 $(document).ready(() => {
-  const $newActivityInput = $("input.new-activity");
-  const $newTimeInput = $("input.new-time");
+  const $newActivityInput = $(".new-activity");
+  const $newTimeInput = $(".new-time");
   const $activityContainer = $(".activity-container");
 
   $(document).on("click", "button.delete", deleteActivity);
@@ -35,6 +35,16 @@ $(document).ready(() => {
       initializeRows();
     });
   }
+
+  $("#random-picker").on("submit", event => {
+    event.preventDefault();
+    $.ajax({
+      url: "/api/jar/" + $(".random-time").val(),
+      method: "GET"
+    }).then(response => {
+      $("#random-thing").text(response[0].woooo);
+    });
+  });
 
   // This function deletes a activity when the user clicks the delete button
   function deleteActivity(event) {
@@ -82,7 +92,7 @@ $(document).ready(() => {
     );
 
     $newInputRow.find("button.delete").data("id", activity.id);
-    $newInputRow.find("input.edit").css("display", "none");
+    $newInputRow.find(".edit").css("display", "none");
     $newInputRow.data("activity", activity);
     // if (activity.complete) {
     //   $newInputRow.find("span").css("text-decoration", "line-through");
@@ -95,11 +105,11 @@ $(document).ready(() => {
     event.preventDefault();
     const activity = {
       woooo: $newActivityInput.val().trim(),
-      secondcol: $newTimeInput.val().trim()
+      secondcol: $newTimeInput.val()
     };
 
     $.post("/api/jar", activity, getActivities);
     $newActivityInput.val("");
-    $newTimeInput.val("");
   }
+
 });
