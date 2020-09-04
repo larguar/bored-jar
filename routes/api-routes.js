@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require("../models");
 const passport = require("../config/passport");
+const sequelize = require("sequelize");
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -53,6 +54,20 @@ module.exports = function(app) {
 
   app.get("/api/jar", async (req, res) => {
     const dbJar = await db.Jar.findAll({});
+    res.json(dbJar);
+  });
+
+  //from the documentation:
+  // Will order randomly based on the dialect (instead of fn('RAND') or fn('RANDOM'))
+  //order: sequelize.random()
+  app.get("/api/jar/:secondcol", async (req, res) => {
+    const dbJar = await db.Jar.findAll({
+      where: {
+        secondcol: req.params.secondcol
+      },
+      order: sequelize.fn("RAND"),
+      limit: 1
+    });
     res.json(dbJar);
   });
 
