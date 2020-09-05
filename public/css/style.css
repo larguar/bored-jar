@@ -378,6 +378,7 @@ button.btn-default:hover {
 }
 .login .form-control {
   color: #1B4B30;
+  height: 44px;
 }
 .login .form-control:focus {
   color: #1B4B30;
