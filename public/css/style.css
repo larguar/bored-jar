@@ -1,0 +1,434 @@
+body {
+  font-family: pragmatica-extended, sans-serif;
+  background-color: #ACE69A;
+}
+h1 {
+  font-size: 38px;
+  color: #1B4B30;
+  text-align: center;
+  font-weight: 700;
+}
+h2 {
+  font-size: 22px;
+  color: #1B4B30;
+  text-align: center;
+  margin-bottom: 20px;
+}
+button:focus {
+  outline: 1px dotted;
+  outline: none;
+}
+body > .container, body > .container > .row {
+  min-height: 100vh;
+}
+.centered {
+  margin-bottom: 20px;
+}
+/* —————————— NAVIGATION –––––––––– */
+navigation.container-fluid {
+  top: 0;
+  position: absolute;
+  padding: 20px 25px;
+}
+navigation .row, navigation .col-6 {
+  margin: 0;
+  padding: 0;
+}
+navigation a {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #1B4B30;
+  font-weight: 500;
+  opacity: 0.6;
+}
+navigation a:hover {
+  text-decoration: none;
+  color: #1B4B30;
+  opacity: 1;
+}
+/* —————————— TOGGLE –––––––––– */
+#toggle {
+  border: 0;
+  background: transparent;
+  padding: 14px 12px;
+  max-width: 24px;
+  height: 28px;
+  transition: 0.1s ease;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 11;
+  opacity: 0.6;
+}
+#toggle:hover {
+  opacity: 1;
+}
+#toggle:before, #toggle:after {
+  content: " ";
+  height: 2px;
+  width: 24px;
+  background: #1B4B30;
+  position: absolute;
+  right: 0;
+}
+#toggle:before {
+  top: 8px;
+}
+#toggle:after {
+  bottom: 8px;
+}
+#toggle.open:before {
+  transform: rotate(45deg);
+  top: 13px;
+}
+#toggle.open:after {
+  transform: rotate(-45deg);
+  bottom: 13px;
+}
+/* —————————— DRAWER –––––––––– */
+#drawer {
+  max-width: 320px;
+  padding: 100px 0 0;
+  transition: 0.3s ease;
+  background: #fff;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  overflow: scroll;
+  z-index: 10;
+}
+#drawer.open {
+  right: 0;
+  box-shadow: 0 0 25px rgba(0,0,0,0.15);
+}
+#drawer.closed {
+  right: -320px;
+}
+.activity-list {
+  padding: 0;
+  list-style: none;
+  margin-bottom: 0;
+}
+#activity-form .col {
+  padding: 0;
+}
+button.delete {
+  padding: 10px 25px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+  color: #1B4B30;
+  font-size: 24px;
+  transition: 0.2s ease;
+}
+button.delete:hover {
+  background: #ACE69A;
+  color: rgba(70, 176, 116, 0.3);
+}
+button.delete:before {
+  content: "Done";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: transparent;
+  transition: 0.2s ease;
+}
+button.delete:hover:before {
+  color:#1B4B30;
+}
+li.activity-item {
+  padding: 18px 85px 18px 30px;
+  border-top: 1px solid #ebebeb;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.3;
+  color: #1B4B30;
+}
+span.time {
+  display: block;
+  font-size: 12px;
+  margin-top: 6px;
+  opacity: 0.6;
+}
+#activity-form {
+  margin-bottom: 40px;
+  padding: 0 30px;
+}
+input.new-activity {
+  margin-bottom: 5px;
+  background: #ACE69A;
+  border: 0;
+  height: 44px;
+  color: #1B4B30;
+}
+input.new-activity.form-control:focus {
+  color: #1B4B30;
+  background-color: #ACE69A;
+  border-color: #1B4B30;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(27, 75, 48, 1);
+}
+select.new-time {
+  border: none;
+  width: 200px;
+  padding-left: 10px;
+  color: #1B4B30;
+  opacity: 0.6;
+}
+select.new-time:focus {
+  color: #1B4B30;
+  box-shadow: none;
+}
+button.btn-success, .btn-success:not(:disabled):not(.disabled):active, .btn-success:focus {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #1B4B30;
+  font-size: 24px;
+  line-height: 26px;
+  box-shadow: none!important;
+}
+button.btn-success:hover {
+  background: transparent;
+  color: #ACE69A;
+}
+input.new-activity::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #1B4B30;
+  opacity: 1; /* Firefox */
+}
+input.new-activity:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #1B4B30;
+}
+input.new-activity::-ms-input-placeholder { /* Microsoft Edge */
+  color: #1B4B30;
+}
+/* —————————— JAR –––––––––– */
+.jarContainer {
+  margin: 32px auto 36px;
+}
+.jar {
+  position: relative;
+  margin: 3px auto;
+}
+.jar img {
+  position: absolute;
+  height: auto;
+  left: 0;
+}
+.jarContainer, .jar {
+  height: 244px;
+}
+.jar, .jar img {
+  width: 200px;
+}
+img#whole-shadow {
+  z-index: 1;
+  opacity: 0.75;
+}
+img#paper {
+  z-index: 2;
+}
+img#jar-highlight {
+  z-index: 3;
+  opacity: 0.75;
+}
+img#lid {
+  opacity: 4;
+}
+img#lid-highlight {
+  z-index: 5;
+  opacity: 0.75;
+}
+img#jar-outline25 {
+  z-index: 6;
+  opacity: 0.25;
+}
+img#jar-outline {
+  z-index: 7;
+}
+/* —————————— RANDOM ITEM –––––––––– */
+.random-container {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  padding: 20px;
+  z-index: 8;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+#random-thing {
+  background: url(http://api.thumbr.it/whitenoise-800x400.png?background=f9f9f9ff&noise=777777&density=25&opacity=15);
+  position: relative;
+  margin: 0 auto 30px;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.35;
+  background-size: cover;
+  background-position: center center;
+  color: #1e1e1e;
+  box-shadow: 0 10px 50px -5px rgba(0,0,0,0.15);
+  color: #1B4B30;
+}
+#random-thing:before, #random-thing:after {
+  content: '';
+  position: absolute;
+  bottom: 14px;
+  width: 40%;
+  height: 10px;
+  box-shadow: 0 5px 14px rgba(0,0,0,.7);
+  z-index: -1;
+  transition: all .3s ease-in-out;
+}
+#random-thing:before {
+  left: 15px;
+  transform: skew(-5deg) rotate(-5deg);
+}
+#random-thing:after {
+  right: 15px;
+  transform: skew(5deg) rotate(5deg);
+}
+/* —————————— RANDOM BUTTON –––––––––– */
+.btn.focus, .btn:focus {
+  outline: 0;
+  box-shadow: none;
+  border: none;
+}
+.random-buttons {
+  max-width: 360px;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.random-buttons .col {
+  padding: 0;
+}
+.random-buttons button {
+  width: 100%;
+}
+select.random-time {
+  height: 50px;
+  padding: 0 16px 0 10px;
+  border: 0;
+  border-radius: 4px 0 0 4px;
+  border-right: 10px solid #fff;
+}
+select.random-time, select.random-time:focus {
+  color: rgba(27, 75, 48, 0.6);
+  box-shadow: none;
+  border-color: #fff;
+}
+.duration {
+  max-width: 145px;
+}
+.button.col button {
+  height: 50px;
+  border: 0;
+  border-radius: 0 4px 4px 0;
+  background-image: linear-gradient(to bottom, #1B4B30 0%, #0e341e 100%);
+}
+#open-link {
+  color: #1B4B30;
+  text-decoration: none;
+  opacity: 0.6;
+}
+#open-link:hover {
+  opacity: 1;
+}
+/* —————————— LOGIN/SIGNUP –––––––––– */
+.login h1 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.login .centered {
+  max-width: 500px;
+  margin: 0 auto 40px;
+}
+button.btn-default {
+  height: 50px;
+  border: 0;
+  border-radius: 4px;
+  background-image: linear-gradient(to bottom, #1B4B30 0%, #0e341e 100%);
+  color: #fff;
+  padding: 0 20px;
+  min-width: 160px;
+  margin: 10px 0 30px;
+}
+button.btn-default:hover {
+  color: #fff;
+}
+.login p {
+  color: rgba(27, 75, 48, 0.6);;
+  text-decoration: none;
+}
+.login a {
+  color: rgba(27, 75, 48, 0.6);;
+  text-decoration: underline;
+}
+.login a:hover {
+  color: rgba(27, 75, 48, 1);;
+}
+.login .form-control {
+  color: #1B4B30;
+  height: 44px;
+}
+.login .form-control:focus {
+  color: #1B4B30;
+  background-color: #fff;
+  border-color: #1B4B30;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(27, 75, 48, 1);
+}
+.login .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #1B4B30;
+  opacity: 1; /* Firefox */
+}
+.login .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #1B4B30;
+}
+.login .form-control::-ms-input-placeholder { /* Microsoft Edge */
+  color: #1B4B30;
+}
+@media screen and (max-width: 575px) {
+  .row.d-flex.align-content-center {
+      display: block!important;
+      margin-top: 100px;
+  }
+  body > .container, body > .container > .row {
+      min-height: auto;
+  }
+  .duration {
+      max-width: 130px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .random-buttons select, .random-buttons button {
+      font-size: 14px;
+  }
+  .duration {
+      max-width: 120px;
+  }
+  .centered {
+      padding: 0;
+  }
+  #open-link {
+      font-size: 14px;
+  }
+  .jar, .jar img {
+      width: 180px;
+  }
+  .jarContainer, .jar {
+    height: 220px;
+  }
+  h1 {
+      font-size: 32px;
+  }
+}
