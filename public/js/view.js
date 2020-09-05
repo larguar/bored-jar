@@ -60,16 +60,7 @@ $(document).ready(() => {
 
   function createNewRow(activity) {
     const newInputRow = $(
-      [
-        "<li class='activity-item'>",
-        "<span>",
-        activity.ActivityName,
-        "</span>",
-        "<span>",
-        activity.Duration,
-        "</span>",
-        "<button class='delete btn btn-danger'>✓</button>",
-        "</li>"
+      [`<li class='activity-item'>${activity.ActivityName}<span class="time">${activity.Duration} Minutes</span><button class='delete btn btn-danger'>✓</button></li>`
       ].join("")
     );
 
@@ -94,32 +85,14 @@ $(document).ready(() => {
   const toggle = $("#toggle");
   const drawer = $("#drawer");
 
-  toggle.on("click", () => {
-    if (drawer.hasClass("closed")) {
-      drawer.removeClass("closed");
-      toggle.removeClass("closed");
-      drawer.addClass("open");
-      toggle.addClass("open");
-    } else {
-      drawer.removeClass("open");
-      toggle.removeClass("open");
-      drawer.addClass("closed");
-      toggle.addClass("closed");
-    }
-  });
-
-  $("#open-link").on("click", event => {
+  $("#toggle, #open-link").on("click", event => {
     event.preventDefault();
     if (drawer.hasClass("closed")) {
-      drawer.removeClass("closed");
-      toggle.removeClass("closed");
-      drawer.addClass("open");
-      toggle.addClass("open");
+      drawer.removeClass("closed").addClass("open");
+      toggle.removeClass("closed").addClass("open");
     } else {
-      drawer.removeClass("open");
-      toggle.removeClass("open");
-      drawer.addClass("closed");
-      toggle.addClass("closed");
+      drawer.removeClass("open").addClass("closed");
+      toggle.removeClass("open").addClass("closed");
     }
   });
 });

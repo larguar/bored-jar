@@ -1,7 +1,17 @@
+body {
+  font-family: pragmatica-extended, sans-serif;
+  background-color: #ACE69A;
+}
 h1 {
-  font-size: 25pt;
+  font-size: 38px;
   color: #1B4B30;
   text-align: center;
+  font-weight: 700;
+}
+h2 {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 button:focus {
   outline: 1px dotted;
@@ -28,7 +38,7 @@ navigation a {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: #1B4B30;
-  font-weight: 600;
+  font-weight: 500;
   opacity: 0.6;
 }
 navigation a:hover {
@@ -47,7 +57,7 @@ navigation a:hover {
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 1;
+  z-index: 11;
   opacity: 0.6;
 }
 #toggle:hover {
@@ -81,9 +91,11 @@ navigation a:hover {
   padding: 80px 30px 30px;
   transition: 0.3s ease;
   background: #fff;
-  min-height: 100vh;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
   top: 0;
+  overflow: scroll;
+  z-index: 10;
 }
 #drawer.open {
   right: 0;
@@ -98,6 +110,31 @@ navigation a:hover {
 }
 #activity-form .col {
   padding: 0;
+}
+button.delete {
+  padding: 10px 17px;
+  top: 0;
+  right: 0;
+  position: absolute;
+  height: 100%;
+  background: #f6f6f6;
+  border: 0;
+  border-radius: 0;
+  color: pink;
+}
+li.activity-item {
+  padding: 10px 60px 10px 5px;
+  border-top: 1px solid #e6e6e6;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #1B4B30;
+}
+span.time {
+  display: block;
+  font-size: 12px;
+  margin-top: 4px;
+  opacity: 0.6;
 }
 /* —————————— JAR –––––––––– */
 .jarContainer {
@@ -159,11 +196,12 @@ img#jar-outline {
   margin: 0 auto 30px;
   padding: 20px;
   text-align: center;
-  font-size: 20px;
+  font-size: 24px;
   background-size: cover;
   background-position: center center;
-  max-width: 300px;
   color: #1e1e1e;
+  box-shadow: 0 10px 50px -5px rgba(0,0,0,0.15);
+  color: #1B4B30;
 }
 #random-thing:before, #random-thing:after {
   content: '';
@@ -183,213 +221,49 @@ img#jar-outline {
   right: 15px;
   transform: skew(5deg) rotate(5deg);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-.random-buttons .col, .random-buttons .col-4 {
+/* —————————— RANDOM BUTTON –––––––––– */
+.btn.focus, .btn:focus {
+  outline: 0;
+  box-shadow: none;
+  border: none;
+}
+.random-buttons {
+  max-width: 360px;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+.random-buttons .col {
   padding: 0;
 }
 .random-buttons button {
   width: 100%;
 }
-.random-buttons {
-  max-width: 320px;
-  margin: 0 auto 16px;
+select.random-time {
+  height: 50px;
+  padding: 0 16px 0 10px;
+  border: 0;
+  border-radius: 4px 0 0 4px;
+  border-right: 10px solid #fff;
 }
-
-
-
-form.signup,
-form.login {
-  margin-top: 50px;
+select.random-time, select.random-time:focus {
+  color: rgba(27, 75, 48, 0.6);
+  box-shadow: none;
+  border-color: #fff;
 }
-
-
-input.new-item:focus {
-  outline: none;
+.duration.col {
+  max-width: 145px;
 }
-
-.list-group-item > button.delete,
-.list-group-item > button.complete {
-  float: right;
-  height: 25px;
-  margin-left: 5px;
+.button.col button {
+  height: 50px;
+  border: 0;
+  border-radius: 0 4px 4px 0;
+  background-image: linear-gradient(to bottom, #1B4B30 0%, #0e341e 100%);
 }
-
-.edit {
-  width: 100%;
-}
-
-
-
-
-body {
-  background-color: #ACE69A ;
-}
-
-
-
-
-
-
-
-
-
-
-
-/* .btn {
-  border-radius: 4px;
-  color: white;
-}
-.btn-link{
+#open-link {
   color: #1B4B30;
+  text-decoration: none;
+  opacity: 0.6;
 }
-.btn-primary{
-  background-color: #1B4B30;
-  outline-color: #1B4B30;
-  background-image: linear-gradient(to bottom, #1B4B30 0%,  #0e341e 100%);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border: none;
-  color: white;
+#open-link:hover {
+  opacity: 1;
 }
-a{
-  margin: auto;
-}
-button { 
-  width: 250px;
-  height: 50px;
-  margin: auto;
-  margin-top: 3px;
-  margin-bottom: 5px;    
-}
-.buttonContainer{
-  margin-top: 30px;
-}
-
-
-
-li {
-margin-top: 10px;
-}
-body {
-background: ;
-padding: 30px;
-text-align: center;
-}
-
-.form-control{
-  width: 250px;
-  height: 52px;
-  margin: auto;
-  margin-top: 3px;
-  margin-bottom: 5px;   
-  border-radius: 4px;
-  outline-width: 0px;
-}
-form{
-  display: block;
-  margin-left: 0 auto;
-  margin-right: 0 auto;
-}
-.input-group-btn{
-  width: 90px;
-  background-color: #1B4B30;
-  outline-color: #1B4B30;
-  background-image: linear-gradient(to bottom, #1B4B30 0%,  #0e341e 100%);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border: none;
-  color: white;
-  margin: auto;
-  margin-top: 3px;
-  margin-bottom: 5px;   
-  border-radius: 4px;
-  outline-width: 0px;
-  height: 50px;
-}
-.taskListContainer{
-  margin-top: 50px;
-}
-
- */
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-/* #drawer.closed {
-  margin-left: -230px;
-}
-#drawer header {
-  margin-bottom: 60px;
-}
-#drawer label {
-  font-size: 14px;
-  color: #fff;
-  margin: 4px 4px 8px;
-  opacity: 0.8;
-  max-height: 21px;
-  overflow: hidden;
-}
-#drawer form {
-  margin: 0 0 20px!important;
-  background: #fff;
-  border-radius: 2px;
-  max-height: 48px;
-  overflow: hidden;
-}
-#search, #drawer form button {
-  border-radius: 0!important;
-  border: 0!important;
-  background: transparent!important;
-}
-input#search {
-  height: 48px;
-}
-#drawer form button {
-  color: #ccc;
-}
-#search-list {
-  margin: 0px -15px;
-}
-#search-list .col-12 {
-  padding: 0;
-  margin: 0;
-}
-#search-list li {
-  padding: 16px 20px;
-  font-size: 17px;
-  line-height: 1.2;
-  color: #fff;
-  text-transform: capitalize;
-}
-#search-list li:hover {
-  background-image: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
-}
-#search-list li.active, #search-list li.active:hover {
-  background-image: linear-gradient(90deg, rgba(255,255,255,0.4), transparent);
-}
-#drawer label, #drawer form, #search-list {
-  transition: 0.1s ease;
-}
-#drawer.closed label, #drawer.closed form, #drawer.closed #search-list {
-opacity: 0;
-}
- */
