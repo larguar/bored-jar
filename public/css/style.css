@@ -343,6 +343,59 @@ select.random-time, select.random-time:focus {
 #open-link:hover {
   opacity: 1;
 }
+/* —————————— LOGIN/SIGNUP –––––––––– */
+.login h1 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.login .centered {
+  max-width: 500px;
+  margin: 0 auto 40px;
+}
+button.btn-default {
+  height: 50px;
+  border: 0;
+  border-radius: 4px;
+  background-image: linear-gradient(to bottom, #1B4B30 0%, #0e341e 100%);
+  color: #fff;
+  padding: 0 20px;
+  min-width: 160px;
+  margin: 10px 0 30px;
+}
+button.btn-default:hover {
+  color: #fff;
+}
+.login p {
+  color: rgba(27, 75, 48, 0.6);;
+  text-decoration: none;
+}
+.login a {
+  color: rgba(27, 75, 48, 0.6);;
+  text-decoration: underline;
+}
+.login a:hover {
+  color: rgba(27, 75, 48, 1);;
+}
+.login .form-control {
+  color: #1B4B30;
+}
+.login .form-control:focus {
+  color: #1B4B30;
+  background-color: #fff;
+  border-color: #1B4B30;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(27, 75, 48, 1);
+}
+.login .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #1B4B30;
+  opacity: 1; /* Firefox */
+}
+.login .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #1B4B30;
+}
+.login .form-control::-ms-input-placeholder { /* Microsoft Edge */
+  color: #1B4B30;
+}
 @media screen and (max-width: 575px) {
   .row.d-flex.align-content-center {
       display: block!important;
