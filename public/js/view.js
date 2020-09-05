@@ -60,7 +60,8 @@ $(document).ready(() => {
 
   function createNewRow(activity) {
     const newInputRow = $(
-      [`<li class='activity-item'>${activity.ActivityName}<span class="time">${activity.Duration} Minutes</span><button class='delete btn btn-danger'>✓</button></li>`
+      [
+        `<li class='activity-item'>${activity.ActivityName}<span class="time">${activity.Duration} Minutes</span><button class='delete btn btn-danger'>✓</button></li>`
       ].join("")
     );
 
