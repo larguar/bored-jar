@@ -35,13 +35,18 @@ module.exports = app => {
   });
 
   app.get("/api/jar", async (req, res) => {
-    const dbJar = await db.Jar.findAll({});
+    const dbJar = await db.Jar.findAll({
+      where: {
+        UserId: req.user.id
+      }
+    });
     res.json(dbJar);
   });
 
   app.get("/api/jar/:Duration", async (req, res) => {
     const dbJar = await db.Jar.findAll({
       where: {
+        UserId: req.user.id,
         Duration: req.params.Duration
       },
       order: sequelize.fn("RAND"),
