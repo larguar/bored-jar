@@ -3,7 +3,7 @@ A mobile-first application that allows you to add activities and tasks into a 'B
 
 ![HTML Badge](https://img.shields.io/badge/-HTML-323795) ![CSS Badge](https://img.shields.io/badge/-CSS-01A990) ![JavaScript Badge](https://img.shields.io/badge/-JavaScript-539436) ![API Badge](https://img.shields.io/badge/-API-F58021) ![Node.JS Badge](https://img.shields.io/badge/-Node.JS-CF1848) ![Express.JS Badge](https://img.shields.io/badge/-Express.JS-750460) ![MySQL Badge](https://img.shields.io/badge/-MySQL-61489C)  
 
-![Application Screenshot](asvnkav)
+![Application Screenshot](public/img/jar.gif)
 
 
 ## User Story
