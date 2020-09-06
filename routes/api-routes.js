@@ -3,7 +3,6 @@ const passport = require("../config/passport");
 const sequelize = require("sequelize");
 
 module.exports = app => {
-
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
     res.json({
       email: req.user.email,
