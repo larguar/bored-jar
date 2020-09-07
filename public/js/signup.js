@@ -1,4 +1,5 @@
 $(document).ready(() => {
+  console.log("signup page connected");
   const signUpForm = $("form.signup");
   const emailInput = $("input#email-input");
   const passwordInput = $("input#password-input");

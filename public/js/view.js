@@ -1,4 +1,5 @@
 $(document).ready(() => {
+  console.log("jar page connected");
   const newActivityInput = $(".new-activity");
   const newTimeInput = $(".new-time");
   const activityContainer = $(".activity-container");
