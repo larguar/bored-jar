@@ -21,6 +21,8 @@ module.exports = app => {
   });
 
   app.get("/jar", isAuthenticated, (req, res) => {
-    res.render(path.join(__dirname, "../views/jar"), {});
+    res.render(path.join(__dirname, "../views/jar"), {
+      title: "Bored Jar"
+    });
   });
 };
