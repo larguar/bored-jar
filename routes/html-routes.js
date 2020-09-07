@@ -6,17 +6,21 @@ module.exports = app => {
     if (req.user) {
       res.redirect("/jar");
     }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    res.render(path.join(__dirname, "../views/signup"), {
+      title: "Bored Jar | Log In"
+    });
   });
 
   app.get("/login", (req, res) => {
     if (req.user) {
       res.redirect("/jar");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.render(path.join(__dirname, "../views/login"), {
+      title: "Bored Jar | Sign Up"
+    });
   });
 
   app.get("/jar", isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname, "../public/jar.html"));
+    res.render(path.join(__dirname, "../views/jar"), {});
   });
 };
