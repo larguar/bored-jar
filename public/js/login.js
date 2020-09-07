@@ -13,6 +13,7 @@ $(document).ready(() => {
 
     if (!userData.email) {
       emailInput.val("");
+      passwordInput.val("");
       $(".login-alerts").text("Input a valid email address");
       setTimeout(fadeOut, 3000);
       function fadeOut() {
@@ -21,13 +22,14 @@ $(document).ready(() => {
       return;
     } else if (!userData.password) {
       emailInput.val("");
+      passwordInput.val("");
       $(".login-alerts").text("Input a valid pasword");
       setTimeout(fadeOut, 3000);
       function fadeOut() {
         $(".login-alerts").text("");
       }
       return;
-    } else if (!userData.email + !userData.password) {
+    } else if (!userData.email && !userData.password) {
       emailInput.val("");
       passwordInput.val("");
       $(".login-alerts").text("Input a valid email and password");
