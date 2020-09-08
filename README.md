@@ -59,7 +59,12 @@ THEN the user is logged out and redirected to the Sign Up form
 
 
 ## Credits
-A collaboration between [Lauren Siminski](https://github.com/siminski), [Kim Credit](https://github.com/kimcredit), [Teddy Lonczak](https://github.com/tedlon2314), and [Benedicta Kim](https://github.com/benedictakim). This web app wouldn't run without [Express](https://www.npmjs.com/package/express), [Express Handlebars](https://www.npmjs.com/package/express-handlebars), [MySQL2](https://www.npmjs.com/package/mysql2), [Passport](https://www.npmjs.com/package/passport), or [Sequelize](https://www.npmjs.com/package/sequelize).
+A collaboration between [Lauren Siminski](https://github.com/siminski), [Kim Credit](https://github.com/kimcredit), [Teddy Lonczak](https://github.com/tedlon2314), and [Benedicta Kim](https://github.com/benedictakim). This web application wouldn't run without:
+* [Express](https://www.npmjs.com/package/express)
+* [Express Handlebars](https://www.npmjs.com/package/express-handlebars)
+* [MySQL2](https://www.npmjs.com/package/mysql2)
+* [Passport](https://www.npmjs.com/package/passport)
+* [Sequelize](https://www.npmjs.com/package/sequelize)
 
 
 ## Questions
