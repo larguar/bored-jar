@@ -59,7 +59,7 @@ THEN the user is logged out and redirected to the Sign Up form
 
 
 ## Credits
-A collaboration between [Lauren Siminski](https://github.com/siminski), [Kim Credit](https://github.com/kimcredit), [Teddy Lonczak](https://github.com/tedlon2314), and [Benedicta Kim](https://github.com/benedictakim). This web app wouldn't run without:
+A collaboration between [Lauren Siminski](https://github.com/siminski), [Kim Credit](https://github.com/kimcredit), [Teddy Lonczak](https://github.com/tedlon2314), and [Benedicta Kim](https://github.com/benedictakim). This web application wouldn't run without:
 * [Express](https://www.npmjs.com/package/express)
 * [Express Handlebars](https://www.npmjs.com/package/express-handlebars)
 * [MySQL2](https://www.npmjs.com/package/mysql2)
